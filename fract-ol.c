@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:55:50 by milsanch          #+#    #+#             */
-/*   Updated: 2025/03/10 18:21:31 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/03/10 20:28:34 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main
 	while (i < 42)
 	{
 		tmp_real = (point.real * point.real)- (point.i * point.i);
-		point.i = 2 * (point.real * point.i)
+		point.i = 2 * (point.real * point.i);
 	//General formula
 	// z= z² + c
 	}
