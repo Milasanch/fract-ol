@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.c                                         :+:      :+:    :+:   */
+/*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:55:50 by milsanch          #+#    #+#             */
-/*   Updated: 2025/03/10 20:28:34 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:57:13 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"fract-ol.h";
+#include	"fractol.h"
 
 
-typedef struct	complex_type
-{
-	double	real;
-	double	i;
-}		complex_num;
+// typedef struct	complex_type
+// {
+// 	double	real;
+// 	double	i;
+// }		complex_num;
 
 
-int	main
+int	main(void)
 {
 	complex_num	point;
 	complex_num	init_point;
@@ -29,7 +29,7 @@ int	main
 
 	i = 0;
 	point.real = 0;
-	pont.i = 0;
+	point.i = 0;
 
 	init_point.real = 5;
 	init_point.i = 2;
@@ -37,8 +37,11 @@ int	main
 	{
 		tmp_real = (point.real * point.real)- (point.i * point.i);
 		point.i = 2 * (point.real * point.i);
-	//General formula
-	// z= z² + c
+		point.real = tmp_real + init_point.real;
+		point.i += init_point.i;
+		
+		printf("%d real %f imaginary %f\n", i, point.real, point.i);
+		i++;
 	}
 	return (0);
 }

@@ -1,5 +1,7 @@
-#ifndef FRACT-OL_H
-#define FRACT-OL_H
+#ifndef FRACTOL_H
+#define FRACTOL_H
+
+# include <stdio.h>
 
 typedef struct	complex_type
 {
