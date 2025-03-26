@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include	"fractol.h"
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
@@ -31,7 +33,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t		n;
 
 	n = 6;
-	printf("%i\n", ft_strncmp(s1, s2, n));
+	printf("%i\n",  ft_strncmp(s1, s2, n));
 	//printf("%i\n", strncmp(s1, s2, n));
 	return (0);
 }*/

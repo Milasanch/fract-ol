@@ -20,6 +20,6 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2 ft_strncmp(av[1], "mandelbrot", 10) || )
+	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10) || 4 == argv && !ft_strncmp (av[1], "julia", s)
 	return (0);
 }
