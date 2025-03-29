@@ -1,9 +1,14 @@
 #ifndef FRACTOL_H
-#define FRACTOL_H
+# define FRACTOL_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
+# include <stdio.h> //TODO debugging
+# include <unistd.h> //write
+# include <stdlib.h> //malloc free
+# include <math.h>
+# include "minilibx-linux/mlx.h"
+
+#define ERROR_MESSAGE "Error\n" //revisar
+
 
 typedef struct	complex_type
 {
