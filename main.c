@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:44:25 by milsanch          #+#    #+#             */
-/*   Updated: 2025/03/29 11:14:10 by milagros         ###   ########.fr       */
+/*   Updated: 2025/03/29 13:35:05 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10) || 4 == argv 
-	&& !ft_strncmp (argv[1], "julia", 5)
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) || (argc == 4 
+	&& !ft_strncmp (argv[1], "julia", 5)))
 	{
-		//Promp correct
+		//kick off function
 	}
 	else
 	{
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO) //revisar
-		exit(EXIT_FAILURE);//revisar
+		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);//pending check
+		exit(EXIT_FAILURE);//pending check
 	}
 	return (0);
 }
