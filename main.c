@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:44:25 by milsanch          #+#    #+#             */
-/*   Updated: 2025/03/29 13:35:05 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:31:31 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 int	main(int argc, char **argv)
 {
+	t_fract	fractal;
+	
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) || (argc == 4 
 	&& !ft_strncmp (argv[1], "julia", 5)))
 	{
