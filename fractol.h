@@ -13,16 +13,19 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <stdio.h> //erase at the end
+# include <stdio.h>
 # include <unistd.h> 
 # include <stdlib.h> 
 # include <math.h>
+# include <X11/X.h> //to check
+# include <X11/keysym.h> //to check
 # include "minilibx-linux/mlx.h" 
 //why mlx.h?
 
 #define ERROR_MESSAGE "Error, enter the fractal's name, it can be mandelbrot or julia <value1> <value2>'\n"
 #define WIDTH 				800
 #define HEIGHT 				800
+
 #define BLACK   			0x000000
 #define WHITE   			0xFFFFFF
 #define RED     			0xFF0000
@@ -44,13 +47,13 @@ typedef struct	s_complex
 typedef struct	s_img
 {
 	void	*img_ptr; //pointer to image struct
-	char	*pixels_ptr // points to the actual pixels
+	char	*pixels_ptr; // points to the actual pixels
 	int		bpp;
 	int		endian; // revisar
 	int		line_len; //revisar
 }		t_img;
 
-typedef struct	s_fract
+typedef struct	s_fractal
 {
 	char	*name;
 	void	*mlx_connection; //mlx_init
@@ -58,18 +61,18 @@ typedef struct	s_fract
 	t_img	img;
 	double	hypotenuse;
 	int		iterations; //value tight with image quality
-}		t_fract;
+}		t_fractal;
 
 //auxft.c
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
 //init_fractal.c
-void    init_fractal(t_fract *fractal);
+void    init_fractal(t_fractal *fractal);
 //math_utils.c
 double    scale(double unscaled_num, double new_max, double old_min,
-	double old_max)
+	double old_max);
 t_complex    sum_complex(t_complex x, t_complex y);
 t_complex    square_complex(t_complex x);
 //render_fractal.c
-void    render_fractal(t_fract *fractal);
+void    render_fractal(t_fractal *fractal);
 #endif

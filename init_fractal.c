@@ -14,19 +14,17 @@
 
 static void error_malloc(void)
 {
-    perror("Problems with malloc");
+    perror("Malloc Failure");
     exit(EXIT_FAILURE);
 }
 
-void    init_data(t_fract *fractal)
+void    init_data(t_fractal *fractal)
 {
     fractal->hypotenuse = 4; //2sqr
-    fractal->iterations = 50;
-    
-
+    fractal->iterations = 42;  
 }
 
-void    init_fractal(t_fract *fractal)
+void    init_fractal(t_fractal *fractal)
 {
     fractal->mlx_connection = mlx_init(); //check
     if(!fractal->mlx_connection)
@@ -49,5 +47,5 @@ void    init_fractal(t_fract *fractal)
     }
     fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr, 
                 &fractal->img.bpp, &fractal->img.line_len, &fractal->img.endian);
-    
+    init_data(fractal);
 }

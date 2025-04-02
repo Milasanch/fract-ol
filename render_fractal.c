@@ -24,7 +24,6 @@ static void set_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	point;
 	t_complex	init_point;
-	double		tmp_real;
 	int	        i;
     int         color;
 
@@ -39,10 +38,11 @@ static void set_pixel(int x, int y, t_fractal *fractal)
 	{
         point = sum_complex(square_complex(point), init_point);
 
-		if ()//?
+		if ((point.real * point.real) + (init_point.i * init_point.i) > fractal->hypotenuse)
         {
             color = scale(i, BLACK, WHITE, fractal->iterations); //pending to check
             put_pixel(x, y, &fractal->img, color); //pending to check
+            return ;
         }
 		i++;
 	}
@@ -70,7 +70,7 @@ void    render_fractal(t_fractal *fractal)
             //     color = 0; // Default color
 
             // Set the pixel color in the image
-            put_pixel(x, y, &fractal);
+            set_pixel(x, y, fractal);
             x++;
         }
         y++;
