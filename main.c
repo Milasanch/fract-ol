@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:44:25 by milsanch          #+#    #+#             */
-/*   Updated: 2025/03/31 13:31:31 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/02 02:22:32 by milagros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ int	main(int argc, char **argv)
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) || (argc == 4 
 	&& !ft_strncmp (argv[1], "julia", 5)))
 	{
+		fractal.name = argv[1];
+		init_fractal(&fractal); //
+		
+		render_fractal(&fractal); //
+
+		mlx_loop(fractal.mlx_connection); //
+
 		//kick off function
 	}
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/03/31 13:29:04 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:58:32 by milagros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,23 @@
 # include <unistd.h> 
 # include <stdlib.h> 
 # include <math.h>
-# include "minilibx-linux/mlx.h" //why mlx.h?
+# include "minilibx-linux/mlx.h" 
+//why mlx.h?
 
 #define ERROR_MESSAGE "Error, enter the fractal's name, it can be mandelbrot or julia <value1> <value2>'\n"
+#define WIDTH 				800
+#define HEIGHT 				800
+#define BLACK   			0x000000
+#define WHITE   			0xFFFFFF
+#define RED     			0xFF0000
+#define GREEN   			0x00FF00
+#define BLUE    			0x0000FF
+#define FLUORESCENT_PINK    0xFF1493
+#define FLUORESCENT_GREEN   0x39FF14
+#define FLUORESCENT_YELLOW  0xFFFF00
+#define FLUORESCENT_ORANGE  0xFFA500
+#define FLUORESCENT_BLUE    0x00FFFF
+#define FLUORESCENT_PURPLE  0xBF00FF
 
 typedef struct	s_complex
 {
@@ -38,13 +52,24 @@ typedef struct	s_img
 
 typedef struct	s_fract
 {
+	char	*name;
 	void	*mlx_connection; //mlx_init
 	void	*mlx_window; //mlx_new_window
 	t_img	img;
+	double	hypotenuse;
+	int		iterations; //value tight with image quality
 }		t_fract;
 
-
+//auxft.c
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
-
+//init_fractal.c
+void    init_fractal(t_fract *fractal);
+//math_utils.c
+double    scale(double unscaled_num, double new_max, double old_min,
+	double old_max)
+t_complex    sum_complex(t_complex x, t_complex y);
+t_complex    square_complex(t_complex x);
+//render_fractal.c
+void    render_fractal(t_fract *fractal);
 #endif
