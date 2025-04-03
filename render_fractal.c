@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fractal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:06:55 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/02 16:57:02 by milagros         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:28:15 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void set_pixel(int x, int y, t_fractal *fractal)
 	point.real = 0.0;
 	point.i = 0.0;
 
-	init_point.real = scale(x, -2, 2, WIDTH);
-    init_point.i = scale(y, 2, -2, HEIGHT);
+	init_point.real = scale(x, -2, 2, WIDTH) + fractal->zoom +fractal->shift_x;
+    init_point.i = scale(y, 2, -2, HEIGHT) + fractal->zoom + fractal->shift_y;
 
 	while (i < fractal->iterations) //check iterations
 	{

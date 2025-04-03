@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_fractal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:08:31 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/02 16:59:24 by milagros         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:26:52 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,17 @@ static void error_malloc(void)
 void    init_data(t_fractal *fractal)
 {
     fractal->hypotenuse = 4; //2sqr
-    fractal->iterations = 100;  
+    fractal->iterations = 100;
+    fractal->shift_x = 0.0;
+    fractal->shift_y = 0.0;
+    fractal->zoom = 1.0;
+}
+
+static void    init_events(t_fractal *fractal)
+{
+    mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, key_handler, fractal); //to do key_handle
+    mlx_hook(fractal->mlx_window, ButtonPress, ButtonPressMask, mouse_handler, fractal); //to do mouse_handle
+    mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask, close_handler, fractal); //to do close_handler
 }
 
 void    init_fractal(t_fractal *fractal)
@@ -47,5 +57,6 @@ void    init_fractal(t_fractal *fractal)
     }
     fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr, 
                 &fractal->img.bpp, &fractal->img.line_len, &fractal->img.endian);
+    init_events(fractal);
     init_data(fractal);
 }

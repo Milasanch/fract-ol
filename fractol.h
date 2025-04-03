@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/02 16:58:32 by milagros         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:26:15 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 #define ERROR_MESSAGE "Error, enter the fractal's name, it can be mandelbrot or julia <value1> <value2>'\n"
 #define WIDTH 				800
 #define HEIGHT 				800
-
 #define BLACK   			0x000000
 #define WHITE   			0xFFFFFF
 #define RED     			0xFF0000
@@ -61,6 +60,9 @@ typedef struct	s_fractal
 	t_img	img;
 	double	hypotenuse;
 	int		iterations; //value tight with image quality
+	double	shift_x;
+	double	shift_y;
+	double	zoom;
 }		t_fractal;
 
 //auxft.c
@@ -75,4 +77,8 @@ t_complex    sum_complex(t_complex x, t_complex y);
 t_complex    square_complex(t_complex x);
 //render_fractal.c
 void    render_fractal(t_fractal *fractal);
+//events.c
+int		close_handler(t_fractal *fractal);
+int		key_handler(int keysym, t_fractal *fractal);
+int		mouse_handler(int button, int x, int y, t_fractal *fractal);
 #endif
