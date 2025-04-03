@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:06:55 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/03 15:24:13 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/03 22:48:58 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void    render_fractal(t_fractal *fractal)
 {
     int x;
     int y;
-    //int color;
 
     y = 0;
     while (y < HEIGHT)
@@ -75,15 +74,6 @@ void    render_fractal(t_fractal *fractal)
         x = 0;
         while (x < WIDTH)
         {
-            // Calculate the color for each pixel based on the fractal type
-            // if (ft_strncmp(fractal->name, "mandelbrot", 10) == 0)
-            //     color = mandelbrot(x, y);
-            // else if (ft_strncmp(fractal->name, "julia", 5) == 0)
-            //     color = julia(x, y);
-            // else
-            //     color = 0; // Default color
-
-            // Set the pixel color in the image
             set_pixel(x, y, fractal);
             x++;
         }

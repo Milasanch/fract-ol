@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:08:31 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/03 14:26:52 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/03 22:34:39 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ void    init_data(t_fractal *fractal)
 
 static void    init_events(t_fractal *fractal)
 {
-    mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, key_handler, fractal); //to do key_handle
-    mlx_hook(fractal->mlx_window, ButtonPress, ButtonPressMask, mouse_handler, fractal); //to do mouse_handle
-    mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask, close_handler, fractal); //to do close_handler
+    mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, key_handler, fractal);
+    mlx_hook(fractal->mlx_window, ButtonPress, ButtonPressMask, mouse_handler, fractal);
+    mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask, close_handler, fractal);
+    mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask, track_julia, fractal);
 }
 
 void    init_fractal(t_fractal *fractal)

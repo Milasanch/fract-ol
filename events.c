@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 02:04:13 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/03 15:04:09 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/03 22:55:06 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,16 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal)
         fractal->zoom *= 1.05;
     }
     render_fractal(fractal);
+    return (0);
+}
+
+int track_julia(int x, int y, t_fractal *fractal)
+{
+    if (!ft_strncmp(fractal->name, "julia", 5))
+    {
+        fractal->julia_real = scale(x, -2, 2, WIDTH) * fractal->zoom + fractal->shift_x;
+        fractal->julia_i = scale(y, 2, -2, HEIGHT) * fractal->zoom + fractal->shift_y;
+        render_fractal(fractal);
+    }
     return (0);
 }

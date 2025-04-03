@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/03 15:14:33 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/03 22:33:54 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ void    render_fractal(t_fractal *fractal);
 int		close_handler(t_fractal *fractal);
 int		key_handler(int keysym, t_fractal *fractal);
 int		mouse_handler(int button, int x, int y, t_fractal *fractal);
+int		track_julia(int x, int y, t_fractal *fractal);
 #endif
