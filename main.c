@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:44:25 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/02 02:22:32 by milagros         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:25:41 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int argc, char **argv)
 	|| (argc == 4 && !ft_strncmp (argv[1], "julia", 5)))
 	{
 		fractal.name = argv[1];
+		fractal.julia_real = atodbl(argv[2]);
+		fractal.julia_i = atodbl(argv[3]);
 		init_fractal(&fractal);
 		
 		render_fractal(&fractal);

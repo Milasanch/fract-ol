@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:06:55 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/03 14:28:15 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:24:13 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ static void put_pixel(int x, int y, t_img *img, int color)
     *(unsigned int *)(img->pixels_ptr + pixel) = color; //pending check important
 }
 
+static void mandel_vs_julia(t_complex *point, t_complex *init_point, t_fractal *fractal)
+{
+    if (!ft_strncmp(fractal->name, "julia", 5))
+    {
+        init_point->real = fractal->julia_real;
+        init_point->i = fractal->julia_i;
+    }
+    else
+    {
+        init_point->real = point->real;
+        init_point->i = point->i;
+    }
+}
+
 static void set_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	point;
@@ -28,11 +42,11 @@ static void set_pixel(int x, int y, t_fractal *fractal)
     int         color;
 
 	i = 0;
-	point.real = 0.0;
-	point.i = 0.0;
 
-	init_point.real = scale(x, -2, 2, WIDTH) + fractal->zoom +fractal->shift_x;
-    init_point.i = scale(y, 2, -2, HEIGHT) + fractal->zoom + fractal->shift_y;
+	point.real = scale(x, -2, 2, WIDTH) * fractal->zoom + fractal->shift_x;
+    point.i = scale(y, 2, -2, HEIGHT) * fractal->zoom + fractal->shift_y;
+
+    mandel_vs_julia(&point, &init_point, fractal);
 
 	while (i < fractal->iterations) //check iterations
 	{

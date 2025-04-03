@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/03 14:26:15 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:14:33 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,14 @@ typedef struct	s_fractal
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
+	double 	julia_real;
+	double 	julia_i;
 }		t_fractal;
 
 //auxft.c
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
+double	atodbl(char *s);
 //init_fractal.c
 void    init_fractal(t_fractal *fractal);
 //math_utils.c
