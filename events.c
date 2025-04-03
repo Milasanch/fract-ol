@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 02:04:13 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/03 14:34:50 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:44:06 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal)
     {
         fractal->zoom *= 1.1;
     }
-    printf("%d\n", button);
     render_fractal(fractal);
     return (0);
 }
