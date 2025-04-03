@@ -21,7 +21,7 @@ static void error_malloc(void)
 void    init_data(t_fractal *fractal)
 {
     fractal->hypotenuse = 4; //2sqr
-    fractal->iterations = 42;  
+    fractal->iterations = 100;  
 }
 
 void    init_fractal(t_fractal *fractal)

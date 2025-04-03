@@ -38,7 +38,7 @@ static void set_pixel(int x, int y, t_fractal *fractal)
 	{
         point = sum_complex(square_complex(point), init_point);
 
-		if ((point.real * point.real) + (init_point.i * init_point.i) > fractal->hypotenuse)
+		if ((point.real * point.real) + (point.i * point.i) > fractal->hypotenuse)
         {
             color = scale(i, BLACK, WHITE, fractal->iterations); //pending to check
             put_pixel(x, y, &fractal->img, color); //pending to check
@@ -46,7 +46,7 @@ static void set_pixel(int x, int y, t_fractal *fractal)
         }
 		i++;
 	}
-    put_pixel(x, y, &fractal->img, BLUE);
+    put_pixel(x, y, &fractal->img, FLUORESCENT_ORANGE);
 }
 
 void    render_fractal(t_fractal *fractal)
