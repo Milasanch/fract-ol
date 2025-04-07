@@ -37,20 +37,33 @@ int	key_handler(int keysym, t_fractal *fractal)
 		fractal->iterations += 10;
 	else if (keysym == XK_minus)
 		fractal->iterations -= 10;
+	else if (keysym == XK_space)
+	{
+		fractal->zoom = 1;
+		fractal->shift_x = 0;
+		fractal->shift_y = 0;
+	}
 	render_fractal(fractal);
 	return (0);
 }
 
-int	mouse_handler(int button, int x __attribute__((unused)), int y __attribute__((unused)), t_fractal *fractal) //check
+int	mouse_handler(int button, int x, int y, t_fractal *fractal) //check
 {
+	double	mouse_x;
+	double	mouse_y;
+	double 	zoom_factor;
+
 	if (button == Button5)
-	{
-		fractal->zoom *= 0.95;
-	}
+		zoom_factor = 1.1;
 	else if (button == Button4)
-	{
-		fractal->zoom *= 1.05;
-	}
+		zoom_factor = 0.9;
+	else
+		return (0);
+	mouse_x = (x - WIDTH / 2) / (WIDTH / 4) * fractal->zoom + fractal->shift_x;
+	mouse_y = (y - HEIGHT / 2) / (HEIGHT / 4) * fractal->zoom + fractal->shift_y;
+	fractal->zoom *= zoom_factor;
+	fractal->shift_x += mouse_x - (x - WIDTH / 2) / (WIDTH / 4) * fractal->zoom;
+	fractal->shift_y += mouse_y - (y - HEIGHT / 2) / (HEIGHT / 4) * fractal->zoom;
 	render_fractal(fractal);
 	return (0);
 }
