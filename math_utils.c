@@ -12,29 +12,29 @@
 
 #include "fractol.h"
 
-double    scale(double unscaled_num, double new_min, double new_max,
-                double old_max)
+double	scale(double unscaled_num, double new_min, double new_max,
+			double old_max)
 {
-    double scaled_num;
+	double	scaled_num;
 
-    scaled_num = ((unscaled_num) * ((new_max - new_min) / old_max)) + new_min;
-    return (scaled_num);
+	scaled_num = ((unscaled_num) * ((new_max - new_min) / old_max)) + new_min;
+	return (scaled_num);
 }
 
-t_complex    sum_complex(t_complex x, t_complex y)
+t_complex	sum_complex(t_complex x, t_complex y)
 {
-    t_complex result;
+	t_complex	result;
 
-    result.real = x.real + y.real;
-    result.i = x.i + y.i;
-    return (result);
+	result.real = x.real + y.real;
+	result.i = x.i + y.i;
+	return (result);
 }
 
-t_complex    square_complex(t_complex x)
+t_complex	square_complex(t_complex x)
 {
-    t_complex result;
+	t_complex	result;
 
-    result.real = (x.real * x.real) - (x.i * x.i);
-    result.i = 2 * (x.real * x.i);
-    return (result);
-} 
+	result.real = (x.real * x.real) - (x.i * x.i);
+	result.i = 2 * (x.real * x.i);
+	return (result);
+}
