@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fractal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:06:55 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/03 22:48:58 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:52:59 by milagros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,18 @@ static void	put_pixel(int x, int y, t_img *img, int color)
 	*(unsigned int *)(img->pixels_ptr + pixel) = color; //pending check important
 }
 
-static void	mandel_vs_julia(t_complex *point, t_complex *init_point,
+static void	fractal_type(t_complex *point, t_complex *init_point,
 	t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		init_point->real = fractal->julia_real;
 		init_point->i = fractal->julia_i;
+	}
+	else if (!ft_strncmp(fractal->name, "burningship", 11))
+	{
+		init_point->real = fabs(point->real);
+		init_point->i = fabs(point->i);
 	}
 	else
 	{
@@ -45,7 +50,7 @@ static void	set_pixel(int x, int y, t_fractal *fractal)
 	i = 0;
 	point.real = scale(x, -2, 2, WIDTH) * fractal->zoom + fractal->shift_x;
 	point.i = scale(y, 2, -2, HEIGHT) * fractal->zoom + fractal->shift_y;
-	mandel_vs_julia(&point, &init_point, fractal);
+	fractal_type(&point, &init_point, fractal);
 	while (i < fractal->iterations) //check iterations
 	{
 		point = sum_complex(square_complex(point), init_point);
