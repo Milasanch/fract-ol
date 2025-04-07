@@ -41,7 +41,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 	return (0);
 }
 
-int	mouse_handler(int button, int x, int y, t_fractal *fractal)
+int	mouse_handler(int button, int x __attribute__((unused)), int y __attribute__((unused)), t_fractal *fractal) //check
 {
 	if (button == Button5)
 	{
