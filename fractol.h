@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/03 22:33:54 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:20:34 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 # include <unistd.h> 
 # include <stdlib.h> 
 # include <math.h>
-# include <X11/X.h> //to check
-# include <X11/keysym.h> //to check
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
 
-# define ERROR_MESSAGE "Error, enter the fractal's name, it can be mandelbrot or julia <value1> <value2>'\n"
+# define ERROR_PART1 "Error, enter the one of the followings fractal's name"
+# define ERROR_PART2 "mandelbrot \njulia <value1> <value2>' \nburningship\n"
 # define WIDTH				400
 # define HEIGHT				400
 # define BLACK				0x000000

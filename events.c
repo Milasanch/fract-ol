@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 02:04:13 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/03 22:55:06 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:09:07 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	key_handler(int keysym, t_fractal *fractal)
 	return (0);
 }
 
-int	mouse_handler(int button, int x, int y, t_fractal *fractal) //check
+int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
 	double	mouse_x;
 	double	mouse_y;
-	double 	zoom_factor;
+	double	zoom_factor;
 
 	if (button == Button5)
 		zoom_factor = 1.1;
@@ -59,11 +59,15 @@ int	mouse_handler(int button, int x, int y, t_fractal *fractal) //check
 		zoom_factor = 0.9;
 	else
 		return (0);
-	mouse_x = (x - WIDTH / 2) / (WIDTH / 4) * fractal->zoom + fractal->shift_x;
-	mouse_y = (y - HEIGHT / 2) / (HEIGHT / 4) * fractal->zoom + fractal->shift_y;
+	mouse_x = (x - WIDTH / 2) / (WIDTH / 4) * fractal->zoom
+		+ fractal->shift_x;
+	mouse_y = (y - HEIGHT / 2) / (HEIGHT / 4) * fractal->zoom
+		+ fractal->shift_y;
 	fractal->zoom *= zoom_factor;
-	fractal->shift_x += mouse_x - (x - WIDTH / 2) / (WIDTH / 4) * fractal->zoom;
-	fractal->shift_y += mouse_y - (y - HEIGHT / 2) / (HEIGHT / 4) * fractal->zoom;
+	fractal->shift_x += mouse_x - (x - WIDTH / 2) / (WIDTH / 4)
+		* fractal->zoom;
+	fractal->shift_y += mouse_y - (y - HEIGHT / 2) / (HEIGHT / 4)
+		* fractal->zoom;
 	render_fractal(fractal);
 	return (0);
 }

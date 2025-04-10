@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:44:25 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/07 22:55:08 by milagros         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:19:30 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+		ft_putstr_fd(ERROR_PART1 ERROR_PART2, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 	return (0);

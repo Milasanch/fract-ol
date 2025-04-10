@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_fractal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milagros <milagros@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:08:31 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/07 22:36:13 by milagros         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:21:04 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	init_events(t_fractal *fractal)
 		mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
 		close_handler, fractal);
-	//mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask, track_julia, fractal);
 }
 
 void	init_fractal(t_fractal *fractal)
