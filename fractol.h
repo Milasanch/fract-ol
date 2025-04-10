@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/10 14:20:34 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:29:31 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
 
-# define ERROR_PART1 "Error, enter the one of the followings fractal's name"
-# define ERROR_PART2 "mandelbrot \njulia <value1> <value2>' \nburningship\n"
-# define WIDTH				400
-# define HEIGHT				400
+# define ERROR_PART1 "Error, enter the one of the followings fractal's name\n"
+# define ERROR_PART2 "mandelbrot \njulia <double> <double>' \nburningship\n"
+# define WIDTH				800
+# define HEIGHT				800
 # define BLACK				0x000000
 # define WHITE				0xFFFFFF
 # define RED				0xFF0000
@@ -70,6 +70,7 @@ typedef struct s_fractal
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		ft_putstr_fd(char *s, int fd);
 double		atodbl(char *s);
+int			ft_isdouble(char *str);
 void		init_fractal(t_fractal *fractal);
 double		scale(double unscaled_num, double new_max, double old_min,
 				double old_max);

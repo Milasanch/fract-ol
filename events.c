@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 02:04:13 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/10 17:14:58 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:02:00 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,6 @@ int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 	mouse_y = (scale(y, -2, 2, HEIGHT) * fractal->zoom * zoom_factor)
 		+ fractal->shift_y;
 	fractal->zoom *= zoom_factor;
-	fractal->shift_x += mouse_x - scale(x, -2, 2, WIDTH) * fractal->zoom
-		+ fractal->shift_x;
-	fractal->shift_y += mouse_y - scale(y, +2, 2, HEIGHT) * fractal->zoom
-		+ fractal->shift_y;
 	render_fractal(fractal);
 	return (0);
 }
-

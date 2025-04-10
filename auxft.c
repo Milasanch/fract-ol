@@ -3,15 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   auxft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milsanch <milsanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 19:16:04 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/10 14:02:56 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:23:44 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+// int	ft_isdouble(char *str)
+// {
+// 	if(!str && *str == '-')
+// 		str++;
+// 	while(!str && *str <= '9' && *str>= '0')
+// 		str++;
+// 	if(*str == '\0')
+// 		return (0);
+// 	return (1);
+// }
 static double	aux_atodbl(char *s)
 {
 	double	fraction;
@@ -19,7 +29,9 @@ static double	aux_atodbl(char *s)
 
 	fraction = 0;
 	res = 1;
-	while (*s)
+	if (*s == '.')
+		s++;
+	while (*s && (*s >= '0' && *s <= '9'))
 	{
 		res /= 10;
 		fraction = (fraction * 10) + (*s++ - '0');
@@ -44,11 +56,14 @@ double	atodbl(char *s)
 			sign *= -1;
 		s++;
 	}
-	while (*s != '.' && *s)
+	while (*s != '.' && (*s >= '0' && *s <= '9'))
 		i = (i * 10) + (*s++ - '0');
-	if (*s == '.')
-		s++;
 	fraction = aux_atodbl(s);
+	if (*s != '\0')
+	{
+		ft_putstr_fd(ERROR_PART1 ERROR_PART2, STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 	return (sign * (i + fraction));
 }
 
