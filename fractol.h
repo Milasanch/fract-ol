@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/10 21:58:38 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:07:39 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 # define ERROR_PART1 "Error, enter the one of the followings fractal's name\n"
 # define ERROR_PART2 "mandelbrot \njulia <double> <double>' \nburningship\n"
-# define WIDTH				800
-# define HEIGHT				800
+# define WIDTH				400
+# define HEIGHT				400
 # define BLACK				0x000000
 # define WHITE				0xFFFFFF
 # define RED				0xFF0000

@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:06:55 by milagros          #+#    #+#             */
-/*   Updated: 2025/04/10 14:42:01 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:31:17 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static void	fractal_type(t_complex *point, t_complex *init_point,
 static int	calculate_iterations(t_complex point, t_complex init_point,
 				t_fractal *fractal)
 {
-	int	i;
+	double	i;
 
-	i = -1;
+	i = -1.0;
 	while (++i < fractal->iterations)
 	{
 		if (!ft_strncmp(fractal->name, "burningship", 11))
@@ -59,15 +59,13 @@ static void	set_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	point;
 	t_complex	init_point;
-	int			i;
+	double		i;
 
-	point.real = scale(x, -2, 2, WIDTH) * fractal->zoom + fractal->shift_x;
-	point.i = scale(y, -2, 2, HEIGHT) * fractal->zoom + fractal->shift_y;
-	if (!ft_strncmp(fractal->name, "burningship", 11))
-		point.i = scale(y, 2, -2, HEIGHT) * fractal->zoom + fractal ->shift_y;
+	point.real = scale(x, -2.0, 2.0, WIDTH) * fractal->zoom + fractal->shift_x;
+	point.i = scale(y, -2.0, 2.0, HEIGHT) * fractal->zoom + fractal->shift_y;
 	fractal_type(&point, &init_point, fractal);
 	i = calculate_iterations(point, init_point, fractal);
-	if (i >= 0)
+	if (i >= 0.0)
 		put_pixel(x, y, &fractal->img, scale(i, BLACK, WHITE,
 				fractal->iterations));
 	else
@@ -79,10 +77,10 @@ void	render_fractal(t_fractal *fractal)
 	int	x;
 	int	y;
 
-	y = 0;
+	y = 0.0;
 	while (y < HEIGHT)
 	{
-		x = 0;
+		x = 0.0;
 		while (x < WIDTH)
 		{
 			set_pixel(x, y, fractal);
