@@ -6,7 +6,7 @@
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:30:07 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/10 20:29:31 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:58:38 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
+# include <stdbool.h>
 
 # define ERROR_PART1 "Error, enter the one of the followings fractal's name\n"
 # define ERROR_PART2 "mandelbrot \njulia <double> <double>' \nburningship\n"
@@ -48,15 +49,15 @@ typedef struct s_img
 	void	*img_ptr;
 	char	*pixels_ptr;
 	int		bpp;
-	int		endian; //check
-	int		line_len; //check
+	int		endian;
+	int		line_len;
 }		t_img;
 
 typedef struct s_fractal
 {
 	char	*name;
-	void	*mlx_connection; //mlx_init
-	void	*mlx_window; //mlx_new_window
+	void	*mlx_connection;
+	void	*mlx_window;
 	t_img	img;
 	double	hypotenuse;
 	int		iterations;
@@ -70,7 +71,7 @@ typedef struct s_fractal
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		ft_putstr_fd(char *s, int fd);
 double		atodbl(char *s);
-int			ft_isdouble(char *str);
+bool		ft_isdouble(char *str);
 void		init_fractal(t_fractal *fractal);
 double		scale(double unscaled_num, double new_max, double old_min,
 				double old_max);
@@ -80,5 +81,4 @@ void		render_fractal(t_fractal *fractal);
 int			close_handler(t_fractal *fractal);
 int			key_handler(int keysym, t_fractal *fractal);
 int			mouse_handler(int button, int x, int y, t_fractal *fractal);
-int			track_julia(int x, int y, t_fractal *fractal);
 #endif

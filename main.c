@@ -6,17 +6,17 @@
 /*   By: milsanch <milsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:44:25 by milsanch          #+#    #+#             */
-/*   Updated: 2025/04/10 14:19:30 by milsanch         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:59:14 by milsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//Create Julia and Mandelbrot
-//Infinite Zoom
-//Able to take command line args to discipline which fractal render
-//ESC closes the process with no leaks
-//Click on the X window, closes the process leaks free
-
 #include "fractol.h"
+
+static void	exit_error(void)
+{
+	ft_putstr_fd(ERROR_PART1 ERROR_PART2, STDERR_FILENO);
+	exit(EXIT_FAILURE);
+}
 
 int	main(int argc, char **argv)
 {
@@ -29,6 +29,8 @@ int	main(int argc, char **argv)
 		fractal.name = argv[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
 		{
+			if (!ft_isdouble(argv[2]) || !ft_isdouble(argv[3]))
+				exit_error();
 			fractal.julia_real = atodbl(argv[2]);
 			fractal.julia_i = atodbl(argv[3]);
 		}
@@ -37,9 +39,6 @@ int	main(int argc, char **argv)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-	{
-		ft_putstr_fd(ERROR_PART1 ERROR_PART2, STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		exit_error();
 	return (0);
 }
